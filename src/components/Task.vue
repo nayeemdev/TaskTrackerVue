@@ -2,11 +2,11 @@
 <div :class="[task.reminder ? 'reminder' : '', 'task'] ">
     <h3>
         {{ task.text }}
-        <i :class="[task.reminder ? 'fa-bell-slash' : 'fa-bell', 'fas']"></i>    
+        <i @click="$emit('toggle-remind', id)" :class="[task.reminder ? 'fa-bell-slash' : 'fa-bell', 'fas']"></i>    
     </h3>
     <p>
         {{ task.date }}
-        <i class="fas fa-trash"></i>
+        <i @click="$emit('delete-task', id)" class="fas fa-trash"></i>
     </p>
 </div>
 </template>

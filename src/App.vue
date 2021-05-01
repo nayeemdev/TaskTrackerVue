@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <Header title="Task Tracker" />
-    <Tasks :tasks="tasks"/>
+    <Tasks @toggle-remind="toggleReminder" @delete-task="deleteTask" :tasks="tasks"/>
   </div>
 </template>
 
@@ -18,6 +18,19 @@
     data() {
       return {
         tasks: []
+      }
+    },
+    methods: {
+      addTask(task) {
+        this.tasks = [...this.tasks, task]
+      },
+      deleteTask(id) {
+        if (confirm('Are You Sure to Delete this task?')) {
+          this.tasks = this.tasks.filter((task) => task.id !== id)
+        }
+      },
+      toggleReminder(id) {
+        this.tasks = this.tasks.map((task) => task.id == id ? {...task, reminder: !task.reminder} : task)
       }
     },
     created() {
@@ -56,6 +69,7 @@
 
   body {
     font-family: 'Poppins', sans-serif;
+    margin: 0 10px;
   }
 
   .container {
