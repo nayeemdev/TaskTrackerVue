@@ -13,7 +13,7 @@
         },
         methods: {
             addTask() {
-                console.log('Task Added')
+                this.$emit('toggle-task-form')
             }
         }
     }
