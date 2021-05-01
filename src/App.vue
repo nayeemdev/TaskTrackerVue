@@ -5,6 +5,7 @@
       <AddTask @add-task="addTask"/>
     </div>
     <Tasks @toggle-remind="toggleReminder" @delete-task="deleteTask" :tasks="tasks"/>
+    <Footer />
   </div>
 </template>
 
@@ -12,13 +13,15 @@
   import Header from './components/Header.vue'
   import Tasks from './components/Tasks'
   import AddTask from './components/AddTask'
+  import Footer from './components/Footer'
 
   export default {
     name: 'App',
     components: {
       Header,
       Tasks,
-      AddTask
+      AddTask,
+      Footer
     },
     data() {
       return {
@@ -46,20 +49,20 @@
       this.tasks = [
         {
           id: 1,
-          text: 'Create Tasks Components',
+          text: 'Add Backend Suppport(API)',
           date: 'Today at 10:50PM',
           reminder: true
         },
         {
           id: 2,
-          text: 'Create Task Components for Loop in tasks',
-          date: 'Today at 10:50PM',
+          text: 'Add Another pages',
+          date: 'Today at 11:50PM',
           reminder: false
         },
         {
           id: 3,
-          text: 'Check Reminder',
-          date: 'Today at 10:50PM',
+          text: 'Make final product :-p',
+          date: 'Today at 12:50AM',
           reminder: false
         }
       ]
